@@ -138,6 +138,11 @@ def process_record_dataset(dataset,
     options.experimental_slack = True
     dataset = dataset.with_options(options)
 
+  options = tf.data.Options()
+  if hasattr(options, 'experimental_allow_stateful'):
+    options.experimental_allow_stateful = True
+    dataset = dataset.with_options(options)
+
   return dataset
 
 
